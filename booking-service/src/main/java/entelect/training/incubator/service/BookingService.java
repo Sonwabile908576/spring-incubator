@@ -73,12 +73,21 @@ public class BookingService {
     }
 
     public Booking createBooking(NewBookingRequest newBookingRequest){
+
+        List<Booking> existingBookings = getBookings();
+
         Booking createdBooking = new Booking();
         createdBooking.setCustomerId(newBookingRequest.getCustomerId());
         createdBooking.setFlightId(newBookingRequest.getFlightId());
         createdBooking.setReferenceNumber(referenceNumberGenerator());
 
-        return bookingRepository.save(createdBooking);
+        if(existingBookings.contains(createdBooking))
+        {
+            return null;
+        }
+        else {
+            return bookingRepository.save(createdBooking);
+        }
     }
 
     public List<Booking> search(SearchBookingRequest searchBookingRequest){
