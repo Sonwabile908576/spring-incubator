@@ -1,0 +1,14 @@
+{
+    "/bookingAPI": {
+        "target": "http://localhost:8200",
+        "secure": false
+    },
+    "/customerAPI": {
+        "target": "http://localhost:8201",
+        "secure": false
+    },
+    "/flightAPI": {
+        "target": "http://localhost:8202",
+        "secure": false
+    }
+}
