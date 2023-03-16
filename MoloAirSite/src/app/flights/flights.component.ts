@@ -36,7 +36,8 @@ export class FlightsComponent {
   }
 
   bookFlight(flightId: number) { 
-    let dialogRef = this.dialog.open(LoginDialogComponent);
+    let dialogRef = this.dialog.open(LoginDialogComponent, { data: { flightId: flightId }});
+    
   }
   
 }

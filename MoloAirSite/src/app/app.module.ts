@@ -30,6 +30,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { HomeComponent } from './home/home.component';
 import { FlightsComponent } from './flights/flights.component';
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+import { BookingComponent } from './booking/booking.component';
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
     HomeComponent,
     FlightsComponent,
     LoginDialogComponent,
+    BookingComponent,
+    ErrorDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,8 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
     MatMenuModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent, pathMatch: 'full'},
-      {path: 'flights', component: FlightsComponent}
+      {path: 'flights', component: FlightsComponent},
+      {path: 'booking', component: BookingComponent}
     ])
   ],
   providers: [],

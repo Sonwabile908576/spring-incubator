@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Customer } from '../models/Customer';
 import { CustomerService } from '../services/Customer/customer.service';
+import { Router } from '@angular/router';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-login-dialog',
@@ -9,8 +13,8 @@ import { CustomerService } from '../services/Customer/customer.service';
   styleUrls: ['./login-dialog.component.css']
 })
 export class LoginDialogComponent {
-  
-    constructor(private customerService: CustomerService) { }
+
+    constructor(private customerService: CustomerService, private router: Router, private dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public flightId: number, private dialogRef: MatDialogRef<LoginDialogComponent>) { }
 
     loginForm : FormGroup = new FormGroup({
       username: new FormControl('', [Validators.required]),
@@ -31,13 +35,39 @@ export class LoginDialogComponent {
       this.customerService.registerCustomer(customer).subscribe(
         response => {
           if (response.body != null) {
-            console.log(response.body);
+            console.log("success");
+            console.log(response.body.customerId);
+
+            this.router?.navigate(['/booking', {queryParams: {customerID: response.body.customerId, flightId: this.flightId}}]);
+            this.dialogRef.close();
           }
         }
       );
+      
     }
 
     onLogin(){
+      const username = this.loginForm.value.username;
+      const email = this.loginForm.value.email;      
 
+      this.customerService.getAllCustomers().subscribe(
+        response => {
+          if (response.body != null) {
+            let customers: Customer[];
+            customers = response.body;
+
+            for(let customer of customers){
+              if(customer.username == username && customer.email == email)
+              {
+                this.router?.navigate(['/booking', {queryParams: {customerID: customer.customerId, flightId: this.flightId}}]);
+                this.dialogRef.close();
+              }
+              else{
+                this.dialog.open(ErrorDialogComponent);
+              }
+            }
+          }
+        }
+      );
     }
 }
