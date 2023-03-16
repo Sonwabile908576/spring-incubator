@@ -1,0 +1,77 @@
+<body>
+    <div class="example-container mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+
+          <!-- Flight ID Column -->
+          <ng-container matColumnDef="flightId">
+            <th mat-header-cell *matHeaderCellDef> flightId </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+
+          <!-- Flight Number Column -->
+          <ng-container matColumnDef="flightNumber">
+            <th mat-header-cell *matHeaderCellDef> flightNumber </th>
+            <td mat-cell *matCellDef="let element"> {{element.flightNumber}} </td>
+          </ng-container>
+      
+          <!-- origin Column -->
+          <ng-container matColumnDef="origin">
+            <th mat-header-cell *matHeaderCellDef> origin </th>
+            <td mat-cell *matCellDef="let element"> {{element.origin}} </td>
+          </ng-container>
+      
+          <!-- destination Column -->
+          <ng-container matColumnDef="destination">
+            <th mat-header-cell *matHeaderCellDef> destination </th>
+            <td mat-cell *matCellDef="let element"> {{element.destination}} </td>
+          </ng-container>
+      
+          <!-- departureTime Column -->
+          <ng-container matColumnDef="departureTime">
+            <th mat-header-cell *matHeaderCellDef> departureTime </th>
+            <td mat-cell *matCellDef="let element"> {{element.departureTime}} </td>
+          </ng-container>
+
+          <!-- arrivalTime Column -->
+          <ng-container matColumnDef="arrivalTime">
+            <th mat-header-cell *matHeaderCellDef> arrivalTime </th>
+            <td mat-cell *matCellDef="let element"> {{element.arrivalTime}} </td>
+          </ng-container>
+
+          <!-- seatsAvailable Column -->
+          <ng-container matColumnDef="seatsAvailable">
+            <th mat-header-cell *matHeaderCellDef> seatsAvailable </th>
+            <td mat-cell *matCellDef="let element"> {{element.seatsAvailable}} </td>
+          </ng-container>
+
+          <!-- seatCost Column -->
+          <ng-container matColumnDef="seatCost">
+            <th mat-header-cell *matHeaderCellDef> seatCost </th>
+            <td mat-cell *matCellDef="let element"> R{{element.seatCost}} </td>
+          </ng-container>
+
+          <!--actions column-->
+          <ng-container matColumnDef="actions">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              style="color: black; font-weight: 500"
+              >
+              Booking
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="bookFlight(element.id)"
+              >
+                <mat-icon>airplane_ticket</mat-icon> Book
+              </button>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+</body>

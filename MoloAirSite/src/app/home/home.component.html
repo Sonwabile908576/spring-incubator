@@ -1,0 +1,34 @@
+<body>
+    <div class="search">
+      <h1>Search for a flight</h1>
+      <form [formGroup]="flightService.form">
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Origin</mat-label>
+            <input matInput placeholder="johannesburg">
+            <mat-icon matSuffix>flight_takeoff</mat-icon>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Destination</mat-label>
+            <input matInput placeholder="cape Town">
+            <mat-icon matSuffix>flight_land</mat-icon>
+          </mat-form-field>
+        </p>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> Choose a Departure Date</mat-label>
+          <input 
+          matInput 
+          [matDatepicker]="picker"
+          [(ngModel)]="DepartureDate"
+          >
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>          
+      </form>
+    </div>
+</body>

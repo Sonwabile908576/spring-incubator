@@ -1,0 +1,36 @@
+body{
+    background-image: url("C:/Users/sonwabile.balite/Documents/TFO/MoloAirSite/src/assets/pexels-asad-photo-maldives-3601422.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search{
+    border-radius: 6%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    background-color: rgb(188, 188, 188, 0.8);
+
+}
+
+mat-form-field{
+    width: 50%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+h1{
+    color: white;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    font-weight: bold;  
+}

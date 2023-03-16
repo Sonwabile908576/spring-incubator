@@ -1,0 +1,8 @@
+body{
+    background-image: url("C:/Users/sonwabile.balite/Documents/TFO/MoloAirSite/src/assets/pexels-asad-photo-maldives-3601422.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

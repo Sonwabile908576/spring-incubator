@@ -1,5 +1,5 @@
 export class Flight{
-    flightId: number;
+    id: number;
     flightNumber: String;
     origin: String;
     destination: String;
@@ -8,8 +8,8 @@ export class Flight{
     seatsAvailable: Number;
     seatCost: Number;
 
-    constructor(flightId: number, flightNumber: String, origin: String, destination: String, departureTime: Date, arrivalTime: Date, seatsAvailable: Number, seatCost: Number){
-        this.flightId = flightId;
+    constructor(id: number, flightNumber: String, origin: String, destination: String, departureTime: Date, arrivalTime: Date, seatsAvailable: Number, seatCost: Number){
+        this.id = id;
         this.flightNumber = flightNumber;
         this.origin = origin;
         this.destination = destination;
