@@ -25,4 +25,8 @@ export class FlightService {
   getFlights(): Observable<HttpResponse<Flight[]>> {
     return this.http.get<Flight[]>('http://localhost:8202/flights', { observe: 'response' });
   }
+
+  getFlightById(id: Number): Observable<HttpResponse<Flight>> {
+    return this.http.get<Flight>(`http://localhost:8202/flights/${id}`, { observe: 'response' });
+  }
 }

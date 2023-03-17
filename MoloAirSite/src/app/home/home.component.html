@@ -1,5 +1,5 @@
 <body>
-    <div class="search">
+    <mat-card class="search">
       <h1>Search for a flight</h1>
       <form [formGroup]="flightService.form">
         <p>
@@ -28,7 +28,17 @@
             <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
           </mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>          
+        </mat-form-field>
+        
+        <br>
+        <br>
+        <button
+          id="myBtn"
+          mat-raised-button
+          class="searchBtn"
+          (click)="searchFlights()">
+          <mat-icon>search</mat-icon> Search
+        </button>
       </form>
-    </div>
+    </mat-card>
 </body>

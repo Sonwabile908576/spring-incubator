@@ -1,0 +1,87 @@
+body{
+    background-image: url("C:/Users/sonwabile.balite/Documents/TFO/MoloAirSite/src/assets/pexels-asad-photo-maldives-3601422.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card{
+    width: 50%;
+    height: 50%;
+
+}
+
+.bigCard{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.customerCard{
+    background-color: rgba(239, 162, 212, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    margin-right: 10px;
+}
+
+.flightCard{
+    background-color: rgba(146, 191, 233, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    margin-right: 10px;
+}
+
+.bookingCard{
+    background-color: rgba(139, 227, 142, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+
+mat-card-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card-title{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 25px;
+}
+.cards{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 65%;
+}
+
+.myBtn{
+    background-color: rgb(222, 92, 45);
+}
+
+.myBtn:hover{
+    background: linear-gradient(90deg, rgba(224,77,23,1) 11%, rgba(252,176,69,1) 100%);
+}
+
+#spaceHle{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+button{
+    margin-left: 10px;
+}

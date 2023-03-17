@@ -20,4 +20,8 @@ export class CustomerService {
   registerCustomer(customer: Customer): Observable<HttpResponse<Customer>> {
     return this.http.post<Customer>(this.url, customer, { observe: 'response' })
   }
+
+  getCustomerById(id: Number): Observable<HttpResponse<Customer>> {
+    return this.http.get<Customer>(`${this.url}/${id}`, { observe: 'response' });
+  }
 }

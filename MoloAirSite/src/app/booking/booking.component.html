@@ -1,9 +1,55 @@
-<mat-card>
+<body>
+  <mat-card class="bigCard">
     <mat-card-header>
-      <mat-card-title>Actions Buttons</mat-card-title>
-      <mat-card-subtitle>Start</mat-card-subtitle>
+      <mat-card-title>{{bookingMade ? "View Booking" : "Finalize your Booking"}}</mat-card-title>
     </mat-card-header>
-    <mat-card-actions>
-      <button mat-button>Confirm</button>
+    <div class="cards">
+      <mat-card class="customerCard">
+        <mat-card-title>Customer Details</mat-card-title>
+        <mat-card-subtitle><strong>CustomerID: </strong>{{customerId}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>Username: </strong>{{username}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>FirstName: </strong>{{firstName}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>LastName: </strong>{{lastName}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>PassportNumber: </strong>{{passportNumber}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>Email: </strong>{{email}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>PhoneNumber: </strong>{{phoneNumber}}</mat-card-subtitle>
+      </mat-card>
+      
+      <mat-card class="flightCard">
+        <mat-card-title>Flight Details</mat-card-title>
+        <mat-card-subtitle><strong>FlightID: </strong>{{flightId}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>FlightNumber: </strong>{{flightNumber}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>Origin: </strong>{{origin}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>Destination: </strong>{{destination}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>Departure Time: </strong>{{departureTime}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>Arrival Time: </strong>{{arrivalTime}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>Seats Available: </strong>{{seatsAvailable}}</mat-card-subtitle>
+        <mat-card-subtitle>
+          <strong>Number of Seats to purchase: </strong>
+          <form [formGroup]="myForm">
+              <input mat-input type="number" min="1" step="1" formControlName="myNumber">
+          </form>
+          </mat-card-subtitle>
+        <mat-card-subtitle><strong>{{bookingMade ? "Price paid: ": "Price to pay: "}}</strong>R{{seatPrice()}}</mat-card-subtitle>
+      </mat-card>
+      
+
+      <mat-card class="bookingCard" *ngIf="bookingMade">
+          <mat-card-title>Booking Details</mat-card-title>
+          <mat-card-subtitle><strong>BookingID: </strong> {{bookingId}}</mat-card-subtitle>
+          <mat-card-subtitle><strong>CustomerID: </strong>{{customerId}}</mat-card-subtitle>
+          <mat-card-subtitle><strong>FlightID: </strong>{{flightId}}</mat-card-subtitle>
+          <mat-card-subtitle><strong>Reference Number: </strong>{{referenceNumber}}</mat-card-subtitle>
+      </mat-card>
+    </div>
+      
+      
+      
+    
+    <mat-card-actions id="spaceHle">
+      <button class="myBtn" mat-button (click)="makeBooking()">{{bookingMade ? "Go to profile" : "Confirm"}}</button>
+      <button class="myBtn" mat-button *ngIf="bookingMade" routerLink="/">Done</button>
+      <button class="myBtn" *ngIf="!bookingMade" mat-button routerLink="/flights">Cancel</button>
     </mat-card-actions>
   </mat-card>
+</body>

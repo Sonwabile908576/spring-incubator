@@ -11,3 +11,11 @@ h2{
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
 }
+
+.myBtn{
+    background-color: rgb(222, 92, 45);
+}
+
+.myBtn:hover{
+    background: linear-gradient(90deg, rgba(224,77,23,1) 11%, rgba(252,176,69,1) 100%);
+}

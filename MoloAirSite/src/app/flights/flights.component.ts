@@ -29,7 +29,6 @@ export class FlightsComponent {
       response => {
         if (response.body != null) { // add a null check here
           this.dataSource.data = response.body;
-          console.log(response.body);
         }
       }
     );

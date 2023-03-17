@@ -5,7 +5,7 @@ import { CustomerService } from '../services/Customer/customer.service';
 import { Router } from '@angular/router';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
-import { finalize } from 'rxjs';
+import { finalize, pipe } from 'rxjs';
 
 @Component({
   selector: 'app-login-dialog',
@@ -14,7 +14,7 @@ import { finalize } from 'rxjs';
 })
 export class LoginDialogComponent {
 
-    constructor(private customerService: CustomerService, private router: Router, private dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public flightId: number, private dialogRef: MatDialogRef<LoginDialogComponent>) { }
+    constructor(private customerService: CustomerService, private router: Router, private dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<LoginDialogComponent>) { }
 
     loginForm : FormGroup = new FormGroup({
       username: new FormControl('', [Validators.required]),
@@ -36,9 +36,9 @@ export class LoginDialogComponent {
         response => {
           if (response.body != null) {
             console.log("success");
-            console.log(response.body.customerId);
+            console.log(response.body.id);
 
-            this.router?.navigate(['/booking', {queryParams: {customerID: response.body.customerId, flightId: this.flightId}}]);
+            this.router.navigate(['/booking', { queryParams: { customerId: response.body.id, flightId: this.data.flightId }}]);
             this.dialogRef.close();
           }
         }
@@ -48,7 +48,9 @@ export class LoginDialogComponent {
 
     onLogin(){
       const username = this.loginForm.value.username;
-      const email = this.loginForm.value.email;      
+      const email = this.loginForm.value.email; 
+      
+      console.log(`so itchy: ${this.data.flightId}`)
 
       this.customerService.getAllCustomers().subscribe(
         response => {
@@ -59,7 +61,8 @@ export class LoginDialogComponent {
             for(let customer of customers){
               if(customer.username == username && customer.email == email)
               {
-                this.router?.navigate(['/booking', {queryParams: {customerID: customer.customerId, flightId: this.flightId}}]);
+                console.log(customer.id);
+                this.router.navigate(['/booking'], { queryParams: { customerId: customer.id, flightId: this.data.flightId }});
                 this.dialogRef.close();
               }
               else{
