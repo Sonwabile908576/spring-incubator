@@ -4,6 +4,7 @@ import { Flight } from '../models/Flight';
 import { FlightService } from '../services/Flight/flight.service';
 import {MatDialog} from '@angular/material/dialog';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
+import { ActivatedRoute } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -22,16 +23,22 @@ export class FlightsComponent {
   displayedColumns: string[] = ['flightId','flightNumber', 'origin', 'destination', 'departureTime', 'arrivalTime', 'seatsAvailable', 'seatCost', 'actions'];
   dataSource = new MatTableDataSource<Flight>();
 
-  constructor(private flightService: FlightService, private dialog: MatDialog) { }
+  constructor(private flightService: FlightService, private dialog: MatDialog, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.flightService.getFlights().subscribe(
-      response => {
-        if (response.body != null) { // add a null check here
-          this.dataSource.data = response.body;
-        }
-      }
-    );
+
+    this.route.queryParams.subscribe(params => {
+      this.dataSource.data = JSON.parse(params['flightsList']);
+    });
+
+
+    // this.flightService.getFlights().subscribe(
+    //   response => {
+    //     if (response.body != null) { // add a null check here
+    //       this.dataSource.data = response.body;
+    //     }
+    //   }
+    // );
   }
 
   bookFlight(flightId: number) { 

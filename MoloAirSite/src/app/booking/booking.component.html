@@ -21,8 +21,8 @@
         <mat-card-subtitle><strong>FlightNumber: </strong>{{flightNumber}}</mat-card-subtitle>
         <mat-card-subtitle><strong>Origin: </strong>{{origin}}</mat-card-subtitle>
         <mat-card-subtitle><strong>Destination: </strong>{{destination}}</mat-card-subtitle>
-        <mat-card-subtitle><strong>Departure Time: </strong>{{departureTime}}</mat-card-subtitle>
-        <mat-card-subtitle><strong>Arrival Time: </strong>{{arrivalTime}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>Departure Time: </strong>{{departureTime | date:'MMM d, y h:mm a'}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>Arrival Time: </strong>{{arrivalTime | date:'MMM d, y h:mm a'}}</mat-card-subtitle>
         <mat-card-subtitle><strong>Seats Available: </strong>{{seatsAvailable}}</mat-card-subtitle>
         <mat-card-subtitle>
           <strong>Number of Seats to purchase: </strong>

@@ -33,6 +33,7 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { BookingComponent } from './booking/booking.component';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { SuccessDialogComponent } from './success-dialog/success-dialog.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SuccessDialogComponent } from './success-dialog/success-dialog.componen
     BookingComponent,
     ErrorDialogComponent,
     SuccessDialogComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,9 @@ import { SuccessDialogComponent } from './success-dialog/success-dialog.componen
     RouterModule.forRoot([
       {path: '', component: HomeComponent, pathMatch: 'full'},
       {path: 'flights', component: FlightsComponent},
-      {path: 'booking', component: BookingComponent}
+      {path: 'booking', component: BookingComponent},
+      {path: 'profile', component: ProfileComponent},
+      {path:'login', component: LoginDialogComponent},
     ])
   ],
   providers: [],

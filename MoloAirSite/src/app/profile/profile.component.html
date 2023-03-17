@@ -1,0 +1,22 @@
+<body>
+    <mat-card class="customerCard">
+        <mat-card-title>Customer Details</mat-card-title>
+        <mat-card-subtitle><strong>CustomerID: </strong>{{customer.id}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>Username: </strong>{{customer.username}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>FirstName: </strong>{{customer.firstName}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>LastName: </strong>{{customer.lastName}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>PassportNumber: </strong>{{customer.passportNumber}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>Email: </strong>{{customer.email}}</mat-card-subtitle>
+        <mat-card-subtitle><strong>PhoneNumber: </strong>{{customer.phoneNumber}}</mat-card-subtitle>
+    </mat-card>
+    <mat-card class="bookingCard">
+        <mat-card-title>Past Bookings</mat-card-title>
+        <mat-card class="bookingClass" *ngFor="let booking of bookings">
+            <mat-card-subtitle><strong>BookingID: </strong> {{booking.bookingId}}</mat-card-subtitle>
+            <mat-card-subtitle><strong>CustomerID: </strong>{{booking.customerId}}</mat-card-subtitle>
+            <mat-card-subtitle><strong>FlightID: </strong>{{booking.flightId}}</mat-card-subtitle>
+            <mat-card-subtitle><strong>Reference Number: </strong>{{booking.referenceNumber}}</mat-card-subtitle>
+        </mat-card>
+    </mat-card>
+
+</body>

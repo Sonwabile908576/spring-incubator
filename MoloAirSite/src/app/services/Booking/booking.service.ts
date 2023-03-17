@@ -15,4 +15,8 @@ export class BookingService {
   createBooking(newBookingRequest: NewBookingRequest): Observable<HttpResponse<Booking>> {
     return this.http.post<Booking>(this.url, newBookingRequest, { observe: 'response' });
   }
+
+  getBookings(): Observable<HttpResponse<Booking[]>> {
+    return this.http.get<Booking[]>(this.url, { observe: 'response' });
+  }
 }

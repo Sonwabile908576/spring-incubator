@@ -4,15 +4,21 @@
       <form [formGroup]="flightService.form">
         <p>
           <mat-form-field appearance="outline">
+            <mat-label>Days To Departure</mat-label>
+            <input matInput placeholder="7" [(ngModel)]="DaysToDepature">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline">
             <mat-label>Origin</mat-label>
-            <input matInput placeholder="johannesburg">
+            <input matInput placeholder="Johannesburg" [(ngModel)]="Origin">
             <mat-icon matSuffix>flight_takeoff</mat-icon>
           </mat-form-field>
         </p>
         <p>
           <mat-form-field appearance="outline">
             <mat-label>Destination</mat-label>
-            <input matInput placeholder="cape Town">
+            <input matInput placeholder="Cape Town" [(ngModel)]="Destination">
             <mat-icon matSuffix>flight_land</mat-icon>
           </mat-form-field>
         </p>
@@ -21,7 +27,20 @@
           <input 
           matInput 
           [matDatepicker]="picker"
-          [(ngModel)]="DepartureDate"
+          [(ngModel)]="DepartureDateFrom"
+          >
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> Choose a Return Date</mat-label>
+          <input 
+          matInput 
+          [matDatepicker]="picker"
+          [(ngModel)]="DepartureDateTo"
           >
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker">

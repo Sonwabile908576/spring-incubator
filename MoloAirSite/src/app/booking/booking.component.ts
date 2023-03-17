@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from '../models/Customer';
 import { NewBookingRequest } from '../models/NewBookingRequest';
 import { BookingService } from '../services/Booking/booking.service';
@@ -39,23 +39,13 @@ export class BookingComponent implements OnInit {
   seatsAvailable: Number = 0;
   seatCost: Number = 0;
 
-  constructor(private dialog: MatDialog,private route: ActivatedRoute, private flightService: FlightService, private customerService: CustomerService, private bookingService: BookingService) { }
-  //get flightService
-  //get customerService
-  //get bookingService
-
-  //show flight details
-  //show customer details
-  // when user clicks on book button
-  // call bookingService.bookFlight(flightId, customerId)
-  // if booking is successful, show success message
-  // if booking is not successful, show error message
+  constructor(private dialog: MatDialog,private route: ActivatedRoute, private flightService: FlightService, private customerService: CustomerService, private bookingService: BookingService, private router: Router) { }
 
   /*
   - after all these stuff, make customer profile page
   - show customer bookings
   - fix flight search feature
-  - sleep
+  - sleep - we dont do that :(
 
   
   */
@@ -132,7 +122,7 @@ export class BookingComponent implements OnInit {
     }
     else
     {
-      console.log("im tayad")
+      this.router.navigate(['/profile'], { queryParams: { customer: JSON.stringify(this.customer) }})
     }
   }
 

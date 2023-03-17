@@ -1,13 +1,13 @@
 export class Booking{
-    bookingId: number;
-    customerId: number;
-    flightNumber: number;
+    bookingId: Number;
+    customerId: Number;
+    flightId: Number;
     referenceNumber: String;
 
-    constructor(bookingId: number, customerId: number, flightNumber: number, referenceNumber: String){
+    constructor(bookingId: Number, customerId: Number, flightId: Number, referenceNumber: String){
         this.bookingId=bookingId;
         this.customerId = customerId;
-        this.flightNumber = flightNumber;
+        this.flightId = flightId;
         this.referenceNumber = referenceNumber;
     }
 

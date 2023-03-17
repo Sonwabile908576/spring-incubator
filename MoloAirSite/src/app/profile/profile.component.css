@@ -1,0 +1,38 @@
+body{
+    background-image: url("C:/Users/sonwabile.balite/Documents/TFO/MoloAirSite/src/assets/pexels-asad-photo-maldives-3601422.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.customerCard{
+    background-color: rgba(239, 162, 212);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 33%;
+    height: 50%;
+    margin-right: 10px;
+}
+
+.bookingCard{
+    background-color: rgba(139, 227, 142);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 33%;
+    height: fit-content;
+}
+
+.bookingClass{
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    height: fit-content;
+    margin-bottom: 5px;
+}

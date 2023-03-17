@@ -29,13 +29,13 @@
           <!-- departureTime Column -->
           <ng-container matColumnDef="departureTime">
             <th mat-header-cell *matHeaderCellDef> Departure Time </th>
-            <td mat-cell *matCellDef="let element"> {{element.departureTime}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.departureTime | date:'MMM d, y h:mm a'}} </td>
           </ng-container>
 
           <!-- arrivalTime Column -->
           <ng-container matColumnDef="arrivalTime">
             <th mat-header-cell *matHeaderCellDef> Arrival Time </th>
-            <td mat-cell *matCellDef="let element"> {{element.arrivalTime}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.arrivalTime | date:'MMM d, y h:mm a'}} </td>
           </ng-container>
 
           <!-- seatsAvailable Column -->
@@ -57,7 +57,7 @@
               *matHeaderCellDef
               style="color: black; font-weight: 500"
               >
-              Booking
+              Make a Booking
             </th>
             <td mat-cell *matCellDef="let element">
               <button

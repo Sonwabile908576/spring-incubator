@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Flight } from 'src/app/models/Flight';
+import { SearchFlightRequest } from 'src/app/models/SearchFlightRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class FlightService {
 
   form: FormGroup = new FormGroup({
     $id: new FormControl(null),
+    daysToDeparture: new FormControl('', Validators.required),
     flightNumber: new FormControl('', Validators.required),
     origin: new FormControl('', Validators.required),
     destination: new FormControl('', Validators.required),
@@ -28,5 +30,9 @@ export class FlightService {
 
   getFlightById(id: Number): Observable<HttpResponse<Flight>> {
     return this.http.get<Flight>(`http://localhost:8202/flights/${id}`, { observe: 'response' });
+  }
+
+  searchFlights(searchFlightRequest: SearchFlightRequest): Observable<HttpResponse<Flight[]>> {
+    return this.http.post<Flight[]>('http://localhost:8202/flights/search', searchFlightRequest, { observe: 'response' });
   }
 }
