@@ -42,9 +42,11 @@ function BookingPage(){
 
     const bookFlight = async () => {
         let response = await makeBooking(bookingRequest)
+        console.log(response)
+        
         if(response !== null && response !== []){
             setBookingMade(true);
-            setBookingResponse(response.data)
+            setBookingResponse(response)
         } else {
             alert("something went wrong")
         }
@@ -78,9 +80,12 @@ function BookingPage(){
                             <p><strong>Arrival Time: </strong>{formatMyDate(theFlight.arrivalTime)}</p>
                             <p><strong>Seats Available: </strong>{theFlight.seatsAvailable}</p>
                             <p><strong>Number of Seats to purchase: </strong></p>
-                            <form>
+                            {!bookingMade ? (
+                                <form>
                                 <input type="number" min="1" step="1" onChange={seatPrice} value={theNumber}/>
-                            </form>
+                                </form>
+                            ) : <div></div>}
+                            
                             <p><strong>{bookingMade ? "Price paid: ": "Price to pay: "}</strong>R{thePrice}</p>
                         </Card>
                         {bookingMade ? (
@@ -92,7 +97,7 @@ function BookingPage(){
                                 <p><strong>Reference Number: </strong>{bookingResponse.referenceNumber}</p>
                             </Card>
                         ) : <div></div>}
-                        <Button class="myBtn" onClick={() => bookFlight}>{bookingMade ? "Go to profile" : "Confirm"}</Button>
+                        <Button class="myBtn" onClick={bookFlight}>{bookingMade ? "Go to profile" : "Confirm"}</Button>
                     </Box>
                     
                     
