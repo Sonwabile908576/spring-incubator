@@ -3,16 +3,33 @@ import { Card, Box, TextField, InputAdornment, Button } from "@mui/material";
 import { FlightTakeoff, FlightLand, Search } from "@mui/icons-material";
 import { BrowserRouter as Router, Route, Routes, useNavigate} from 'react-router-dom';
 import './home.css'
+import { getAllFlights } from "../Services/flightService"
 
 class Home extends Component{
     render(){
         return (
-            SearchCard()
+            <>
+                <SearchCard props={this.props}/>
+            </>
         )
     }
 }
 
-function SearchCard(){
+function SearchCard(props){
+    const navigate = useNavigate();
+
+    const goToFlights = async () => {
+      
+      const searchFlightRequest = null;
+      console.log('made it to the part just before calling the search method in the service')
+      const response = await getAllFlights()
+
+      if (response){
+        alert("Search Successful");
+        navigate("/flights", {state: JSON.stringify(response)});
+      }
+    }
+
 
     return (
         <div className="thePage">
@@ -56,8 +73,9 @@ function SearchCard(){
                     <Box>
                         <Button 
                             variant="contained"
+                            id="searchButton"
+                            onClick={goToFlights}
                             >
-
                             <Search/>
                             Search
                         </Button>

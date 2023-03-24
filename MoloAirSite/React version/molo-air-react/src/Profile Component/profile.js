@@ -4,7 +4,7 @@ class Profile extends Component{
     render(){
         return (
             <div>
-                <h2>Dintshang</h2>
+                <h2>profile page</h2>
             </div>
         )
     }

@@ -1,7 +1,8 @@
 import './App.css';
 import Home from './Home Component/home.js';
-import Profile from './profile';
+import Profile from './Profile Component/profile';
 import Flights from './Flights Component/flights';
+import Booking from './Booking Component/booking'
 import { Toolbar, IconButton, Button} from '@mui/material';
 import { Person, ConnectingAirports } from '@mui/icons-material';
 import { BrowserRouter as Router, Route, Routes, useNavigate} from 'react-router-dom';
@@ -15,6 +16,7 @@ function App() {
                 <Route exact path="/" element={<Home />} />
                 <Route exact path="/profile" element={<Profile />} />
                 <Route exact path="/flights" element={<Flights />} />
+                <Route exact path="/bookings" element={<Booking />} />
             </Routes>
       </Router>
     </>

@@ -1,0 +1,37 @@
+.centerTable{
+    margin: auto;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thePage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#bookButton{
+    background-color: rgb(222, 92, 45);
+}
+
+#bookButton:hover{
+    background: linear-gradient(90deg, rgba(224,77,23,1) 11%, rgba(252,176,69,1) 100%);
+}
+
+.dialogForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginBtn{
+    background-color: rgb(222, 92, 45);
+}
+
+.loginBtn:hover{
+    background: linear-gradient(90deg, rgba(224,77,23,1) 11%, rgba(252,176,69,1) 100%);
+}
